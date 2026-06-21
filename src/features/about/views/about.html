@@ -1,0 +1,33 @@
+<!--
+  about.html — minimal "About" page.
+
+  This is the simplest possible PureFE page: a title, a short description,
+  a few facts, and a link. Use it as a starting point when adding new pages.
+-->
+<section class="about">
+
+    <header class="about__hero">
+      <span class="about__eyebrow">About</span>
+      <h1 class="about__title" data-bind="text: $root.appName"></h1>
+      <p class="about__lead" data-bind="text: tagline"></p>
+    </header>
+  
+    <div class="about__facts">
+      <!-- ko foreach: facts -->
+        <div class="about__fact">
+          <div class="about__fact-label" data-bind="text: label"></div>
+          <div class="about__fact-value" data-bind="html: value"></div>
+        </div>
+      <!-- /ko -->
+    </div>
+  
+    <footer class="about__cta">
+      <p>Want to extend the framework, fork it, or contribute back?</p>
+      <a class="about__btn"
+         href="https://github.com/YOUR_USERNAME/PureFE"
+         target="_blank" rel="noopener">
+        View on GitHub →
+      </a>
+    </footer>
+  
+  </section>

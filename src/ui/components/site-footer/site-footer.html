@@ -1,0 +1,43 @@
+<!--
+  site-footer — global footer.
+
+  Markup-only. Edit the columns in site-footer.js (this.columns) to change
+  what's displayed; edit site-footer.css to restyle.
+
+  Each link uses the `routeLink` binding for in-app links, and a plain
+  href for external ones (driven by the link's `external` flag).
+-->
+<footer class="site-footer">
+    <div class="site-footer__inner">
+  
+      <div class="site-footer__brand">
+        <div class="site-footer__title" data-bind="text: appName"></div>
+        <div class="site-footer__tagline" data-bind="text: tagline"></div>
+      </div>
+  
+      <!-- ko foreach: columns -->
+      <div class="site-footer__col">
+        <div class="site-footer__heading" data-bind="text: heading"></div>
+        <ul class="site-footer__list">
+          <!-- ko foreach: links -->
+          <li>
+            <!-- ko if: external -->
+              <a data-bind="text: label, attr: { href: href }" target="_blank" rel="noopener"></a>
+            <!-- /ko -->
+            <!-- ko ifnot: external -->
+              <a data-bind="text: label, routeLink: href"></a>
+            <!-- /ko -->
+          </li>
+          <!-- /ko -->
+        </ul>
+      </div>
+      <!-- /ko -->
+  
+    </div>
+  
+    <div class="site-footer__bottom">
+      <span data-bind="text: copyright"></span>
+      <span class="site-footer__sep">·</span>
+      <span>Built with <a href="https://github.com/YOUR_USERNAME/PureFE" target="_blank" rel="noopener">PureFE</a></span>
+    </div>
+  </footer>

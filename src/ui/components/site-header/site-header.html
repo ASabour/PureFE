@@ -1,0 +1,34 @@
+<!--
+  site-header — global top navigation.
+
+  Markup-only. All logic lives in site-header.js, all styling in
+  site-header.css. The links use the `routeLink` binding (see
+  src/app/router.js) so navigation never reloads the page.
+
+  To customize:
+    • Change the brand label             → site-header.js (this.appName)
+    • Add / remove menu items            → site-header.js (this.menu observable)
+    • Change colors / spacing            → site-header.css (uses tokens.css)
+-->
+<header class="site-header">
+    <div class="site-header__inner">
+  
+      <!-- Brand: clicking it navigates Home, but uses routeLink so no reload. -->
+      <a class="site-header__brand" data-bind="routeLink: '/'">
+        <span class="site-header__logo" aria-hidden="true">◆</span>
+        <span class="site-header__brand-text" data-bind="text: appName"></span>
+      </a>
+  
+      <!-- Primary nav menu. Generated from the `menu` observable so adding a
+           page only means editing the array in site-header.js. -->
+      <nav class="site-header__nav" aria-label="Primary">
+        <!-- ko foreach: menu -->
+          <a class="site-header__link" data-bind="routeLink: path, text: label"></a>
+        <!-- /ko -->
+      </nav>
+  
+      <!-- Theme toggle — its own component so it can be reused anywhere. -->
+      <theme-toggle></theme-toggle>
+  
+    </div>
+  </header>

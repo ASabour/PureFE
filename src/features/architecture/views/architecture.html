@@ -1,0 +1,54 @@
+<!--
+  architecture.html — folder map and convention reference.
+
+  Markup only. The folders and conventions are arrays in the view-model
+  so they're easy to extend.
+-->
+<section class="arch">
+
+    <header class="arch__hero">
+      <span class="arch__eyebrow">Architecture</span>
+      <h1 class="arch__title">Project structure</h1>
+      <p class="arch__lead">
+        A guided tour of every folder, what belongs in it, and a concrete example.
+        The same map is mirrored in <code>ARCHITECTURE.md</code> at the project root.
+      </p>
+    </header>
+  
+    <section class="page-section">
+      <h2 class="arch__h2">Folder map</h2>
+      <pre class="arch__tree"><code data-bind="text: tree"></code></pre>
+    </section>
+  
+    <section class="page-section">
+      <h2 class="arch__h2">What goes where</h2>
+      <div class="arch__folders">
+        <!-- ko foreach: folders -->
+          <article class="arch__folder">
+            <header class="arch__folder-head">
+              <code class="arch__folder-path" data-bind="text: path"></code>
+              <span class="arch__folder-tag" data-bind="text: tag"></span>
+            </header>
+            <p class="arch__folder-purpose" data-bind="text: purpose"></p>
+            <div class="arch__folder-example">
+              <strong>Example:</strong>
+              <span data-bind="html: example"></span>
+            </div>
+          </article>
+        <!-- /ko -->
+      </div>
+    </section>
+  
+    <section class="page-section">
+      <h2 class="arch__h2">House rules</h2>
+      <ul class="arch__rules">
+        <!-- ko foreach: rules -->
+          <li class="arch__rule">
+            <span class="arch__rule-mark" data-bind="text: ok ? '✓' : '✗', css: { 'is-good': ok, 'is-bad': !ok }"></span>
+            <span data-bind="html: text"></span>
+          </li>
+        <!-- /ko -->
+      </ul>
+    </section>
+  
+  </section>

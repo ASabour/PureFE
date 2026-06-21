@@ -1,0 +1,40 @@
+<!--
+  tutorial.html — "Your first feature" walkthrough.
+
+  Markup only. The list of steps comes from the view-model so it's easy
+  to extend without touching the template.
+-->
+<section class="tutorial">
+
+    <header class="tutorial__hero">
+      <span class="tutorial__eyebrow">Tutorial</span>
+      <h1 class="tutorial__title">Your first PureFE feature</h1>
+      <p class="tutorial__lead">
+        A 5-minute walkthrough that takes you from a fresh scaffold to a brand-new page
+        with its own route, navigation entry, and unit test.
+      </p>
+    </header>
+  
+    <!-- ko foreach: steps -->
+      <article class="tutorial__step page-section">
+        <div class="tutorial__step-head">
+          <div class="tutorial__step-num" data-bind="text: ($index() + 1)"></div>
+          <h2 class="tutorial__step-title" data-bind="text: title"></h2>
+        </div>
+        <p class="tutorial__step-body" data-bind="html: body"></p>
+  
+        <!-- ko if: code -->
+          <pre class="tutorial__code"><code data-bind="text: code"></code></pre>
+        <!-- /ko -->
+      </article>
+    <!-- /ko -->
+  
+    <section class="page-section tutorial__cta">
+      <h2>That's it.</h2>
+      <p>You now have a fully working feature. Repeat for every new page.</p>
+      <a class="tutorial__btn" data-bind="routeLink: '/architecture'">
+        See the full architecture →
+      </a>
+    </section>
+  
+  </section>

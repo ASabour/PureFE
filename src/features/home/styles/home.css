@@ -1,0 +1,163 @@
+/* home.css — styles for the home page. Loaded via home/index.js. */
+
+.home {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-lg);
+  }
+  
+  /* Hero ------------------------------------------------------------- */
+  .home__hero {
+    text-align: center;
+    padding: var(--space-xl) 0;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--space-xl);
+  }
+  .home__eyebrow {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-brand);
+    margin-bottom: var(--space-sm);
+  }
+  .home__title {
+    font-size: 2.75rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0 0 var(--space-sm);
+    color: var(--color-text);
+  }
+  .home__lead {
+    max-width: 640px;
+    margin: 0 auto var(--space-lg);
+    color: var(--color-text-muted);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  .home__cta {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+  
+  /* Buttons ---------------------------------------------------------- */
+  .home__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: 0.6rem 1.1rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background-color 150ms ease, color 150ms ease, transform 100ms ease;
+  }
+  .home__btn:hover { transform: translateY(-1px); text-decoration: none; }
+  .home__btn:active { transform: translateY(0); }
+  
+  .home__btn--primary { background: var(--color-brand);     color: #fff; }
+  .home__btn--primary:hover { background: var(--color-brand-hover); color: #fff; }
+  
+  .home__btn--ghost {
+    background: transparent;
+    color: var(--color-text);
+    border-color: var(--color-border);
+  }
+  .home__btn--ghost:hover { background: var(--color-surface-alt); color: var(--color-text); }
+  
+  .home__btn--success { background: var(--color-success); color: #fff; }
+  .home__btn--info    { background: var(--color-info);    color: #fff; }
+  .home__btn--warning { background: var(--color-warning); color: #fff; }
+  .home__btn--danger  { background: var(--color-danger);  color: #fff; }
+  
+  /* Section --------------------------------------------------------- */
+  .home__section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 var(--space-sm);
+    color: var(--color-text);
+  }
+  .home__section-lead {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
+  }
+  
+  /* Workflow steps -------------------------------------------------- */
+  .home__steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+  .home__step {
+    display: flex;
+    gap: var(--space-md);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-sm);
+  }
+  .home__step-num {
+    flex: 0 0 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--color-brand-soft);
+    color: var(--color-brand);
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .home__step-title { font-weight: 600; color: var(--color-text); margin-bottom: var(--space-xs); }
+  .home__step-body  { color: var(--color-text-muted); font-size: 0.9375rem; line-height: 1.55; }
+  
+  /* Three pillars --------------------------------------------------- */
+  .home__pillars {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+  }
+  .home__pillar {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-sm);
+  }
+  .home__pillar-icon {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-sm);
+  }
+  .home__pillar-title {
+    margin: 0 0 var(--space-xs);
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+  .home__pillar-body {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.55;
+  }
+  
+  /* Notification demo buttons -------------------------------------- */
+  .home__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+  
+  @media (max-width: 720px) {
+    .home__title  { font-size: 2rem; }
+    .home__pillars { grid-template-columns: 1fr; }
+  }

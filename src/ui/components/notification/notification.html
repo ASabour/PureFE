@@ -1,0 +1,8 @@
+<!-- notification.html — toast container (markup only) -->
+<div class="toast-stack" data-bind="foreach: toasts">
+  <div class="toast" data-bind="css: 'toast--' + type(), attr: { role: type() === 'error' ? 'alert' : 'status' }">
+    <span class="toast__icon" data-bind="text: $parent.iconFor(type())"></span>
+    <span class="toast__message" data-bind="text: message"></span>
+    <button class="toast__close" data-bind="click: $parent.dismiss.bind($parent, $data)" aria-label="Close">&#x2715;</button>
+  </div>
+</div>

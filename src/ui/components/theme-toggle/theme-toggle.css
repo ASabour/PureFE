@@ -1,0 +1,29 @@
+/* theme-toggle.css — styles for <theme-toggle>. */
+
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    background-color: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background-color 150ms ease, color 150ms ease;
+  }
+  .theme-toggle:hover {
+    background-color: var(--color-brand-soft);
+    color: var(--color-brand);
+  }
+  
+  .theme-toggle__icon {
+    font-size: 1rem;
+    line-height: 1;
+  }
+  
+  @media (max-width: 480px) {
+    .theme-toggle__label { display: none; }
+  }

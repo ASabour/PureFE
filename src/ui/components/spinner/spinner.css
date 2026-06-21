@@ -1,0 +1,16 @@
+/* spinner.css */
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+.spinner__ring {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 3px solid var(--color-border, #e5e7eb);
+  border-top-color: var(--color-brand, #3b82f6);
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }

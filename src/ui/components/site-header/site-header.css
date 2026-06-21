@@ -1,0 +1,79 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   site-header.css — styles for <site-header>.
+
+   Loaded with `import './site-header.css'` from site-header.js. Vite
+   bundles it into the final CSS. Scoped by class prefix `site-header__`
+   (BEM-style) — no need for runtime CSS-in-JS.
+   ───────────────────────────────────────────────────────────────────────── */
+
+   .site-header {
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .site-header__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: var(--space-md) var(--space-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+  
+  .site-header__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--color-text);
+    font-weight: 700;
+    font-size: 1.125rem;
+    letter-spacing: -0.01em;
+  }
+  .site-header__brand:hover { color: var(--color-brand); text-decoration: none; }
+  
+  .site-header__logo {
+    display: inline-flex;
+    width: 1.75rem;
+    height: 1.75rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(135deg, var(--color-brand), var(--color-brand-hover));
+    color: #fff;
+    font-size: 0.95rem;
+  }
+  
+  .site-header__nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-left: auto;       /* push nav to the right */
+    margin-right: var(--space-md);
+  }
+  
+  .site-header__link {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    transition: color 150ms ease, background-color 150ms ease;
+  }
+  .site-header__link:hover {
+    color: var(--color-text);
+    background-color: var(--color-surface-alt);
+    text-decoration: none;
+  }
+  .site-header__link.is-active {
+    color: var(--color-brand);
+    background-color: var(--color-brand-soft);
+  }
+  
+  @media (max-width: 640px) {
+    .site-header__inner { flex-wrap: wrap; gap: var(--space-sm); }
+    .site-header__nav   { width: 100%; margin: 0; flex-wrap: wrap; }
+  }

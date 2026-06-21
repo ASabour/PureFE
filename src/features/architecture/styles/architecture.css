@@ -1,0 +1,112 @@
+/* architecture.css */
+
+.arch {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-lg);
+  }
+  
+  .arch__hero {
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--space-xl);
+  }
+  .arch__eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-brand);
+  }
+  .arch__title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin: var(--space-sm) 0;
+    letter-spacing: -0.02em;
+  }
+  .arch__lead {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 640px;
+  }
+  
+  .arch__h2 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    margin-bottom: var(--space-md);
+  }
+  
+  .arch__tree {
+    font-size: 0.85rem;
+    line-height: 1.55;
+  }
+  
+  .arch__folders {
+    display: grid;
+    gap: var(--space-md);
+  }
+  .arch__folder {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-md) var(--space-lg);
+    box-shadow: var(--shadow-sm);
+  }
+  .arch__folder-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xs);
+  }
+  .arch__folder-path {
+    font-size: 0.95rem;
+    font-weight: 600;
+    background: var(--color-brand-soft);
+    color: var(--color-brand);
+    border-color: var(--color-brand-soft);
+  }
+  .arch__folder-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-muted);
+  }
+  .arch__folder-purpose {
+    margin: 0 0 var(--space-sm);
+    color: var(--color-text);
+    line-height: 1.55;
+  }
+  .arch__folder-example {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    background: var(--color-surface-alt);
+    border-radius: var(--radius-sm);
+    padding: var(--space-sm) var(--space-md);
+  }
+  
+  .arch__rules {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-sm);
+  }
+  .arch__rule {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm) var(--space-md);
+  }
+  .arch__rule-mark {
+    font-weight: 700;
+    font-size: 1.05rem;
+    flex: 0 0 1.25rem;
+    text-align: center;
+  }
+  .arch__rule-mark.is-good { color: var(--color-success); }
+  .arch__rule-mark.is-bad  { color: var(--color-danger); }

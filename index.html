@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" data-bind="attr: { 'data-theme': 'light' }">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Page title updates reactively -->
+    <title data-bind="text: $root.appName"></title>
+    <script type="module" src="/src/app/bootstrap.js"></script>
+  </head>
+  <body>
+
+    <!-- Global site header (navigation + theme toggle) -->
+    <site-header></site-header>
+
+    <!-- SPA page outlet — router swaps this component on every navigation -->
+    <main>
+      <div data-bind="component: { name: currentPage, params: currentParams }"></div>
+    </main>
+
+    <!-- Global site footer -->
+    <site-footer></site-footer>
+
+    <!-- Toast notification stack (singleton, listens for purefe:notify events) -->
+    <notification-toast></notification-toast>
+
+  </body>
+</html>

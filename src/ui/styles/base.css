@@ -1,0 +1,126 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   base.css — global resets, layout shell, and Bootstrap overrides.
+
+   Loaded AFTER Bootstrap and AFTER tokens.css, so it always wins.
+
+   Keep this file small. Anything specific to ONE page or ONE component
+   belongs in that page's / component's own .css file (see the
+   "separation of concerns" pattern in src/features/<feature>/styles/).
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* Theme transitions — only color/background, not layout (no jank). */
+html {
+    color-scheme: light dark;
+  }
+  
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+  
+  main {
+    flex: 1;
+    width: 100%;
+  }
+  
+  /* Headings + body text inherit theme color. */
+  h1, h2, h3, h4, h5, h6 { color: var(--color-text); }
+  p, li, dd { color: var(--color-text); }
+  small, .text-muted { color: var(--color-text-muted) !important; }
+  
+  /* Bootstrap card → themed surface */
+  .card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    color: var(--color-text);
+  }
+  .card-header {
+    background-color: var(--color-surface-alt);
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+    font-weight: 600;
+  }
+  .list-group-item {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text);
+  }
+  
+  /* Brand-coloured utility (used in nav + buttons) */
+  .text-brand { color: var(--color-brand) !important; }
+  .bg-brand   { background-color: var(--color-brand) !important; }
+  
+  /* Default link styling — applies everywhere unless a component overrides. */
+  a {
+    color: var(--color-brand);
+    text-decoration: none;
+  }
+  a:hover { color: var(--color-brand-hover); text-decoration: underline; }
+  
+  /* Inline code chips inside body copy. */
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background-color: var(--color-surface-alt);
+    color: var(--color-brand);
+    padding: 0.1em 0.35em;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+  }
+  
+  /* Code blocks (used in tutorial / architecture pages). */
+  pre {
+    background-color: var(--color-surface-alt);
+    color: var(--color-text);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+  }
+  
+  /* Notification host — fixed in the top-right, above everything else. */
+  .notification-host {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 9999;
+    max-width: 360px;
+    pointer-events: none;
+  }
+  .notification-host .toast {
+    pointer-events: auto;
+    margin-bottom: 0.5rem;
+    min-width: 280px;
+  }
+  
+  /* Definition lists used in detail pages. */
+  dl dt { color: var(--color-text-muted); font-weight: 600; margin-top: 0.5rem; }
+  dl dd { margin-bottom: 0.25rem; }
+  
+  /* Subtle section dividers in long pages. */
+  .page-section + .page-section {
+    margin-top: var(--space-xl);
+  }
+  
+  /* Active link styling — driven by the routeLink binding (see router.js). */
+  a.is-active {
+    font-weight: 600;
+    color: var(--color-brand-hover);
+  }
