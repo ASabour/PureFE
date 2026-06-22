@@ -1,56 +1,54 @@
 /**
  * home.js — view-model for the Home page.
  * Pure JS class: no DOM access, no inline HTML.
- * Knockout observables drive the template reactively.
  */
 import ko from 'knockout';
 import notify from '../../../ui/services/notificationService.js';
 
 class HomeVM {
   constructor() {
-    // ── Workflow steps shown on the page ──────────────────────────────
+
     this.steps = [
       {
         title: 'Install PureFE',
         body:
-          'Run `npm create purefe@latest my-app` (or `npx degit user/PureFE/template my-app`) ' +
-          'and `npm install`. A working SPA with 4 pages and 21 tests is ready in seconds.',
+          'Run <code>npx degit YOUR_USERNAME/PureFE/template my-app</code> ' +
+          'and <code>npm install</code>. A working SPA with 4 pages is ready in seconds.',
       },
       {
         title: 'Copy a feature folder',
         body:
-          'Duplicate `src/features/home/` and rename it. ' +
-          'A feature is one folder with `views/`, `viewModels/`, ' +
-          '`styles/`, and an `index.js` that registers components.',
+          'Duplicate <code>src/features/home/</code> and rename it. ' +
+          'A feature is one folder with <code>views/</code>, <code>viewModels/</code>, ' +
+          '<code>styles/</code>, and an <code>index.js</code> that registers components.',
       },
       {
         title: 'Build the page (3 files)',
         body:
-          'Write the markup in a `.html` file, the styles in a ' +
-          '`.css` file, and the logic in a `.js` view-model. ' +
+          'Write the markup in a <code>.html</code> file, the styles in a ' +
+          '<code>.css</code> file, and the logic in a <code>.js</code> view-model. ' +
           'No inline scripts, no inline styles.',
       },
       {
         title: 'Register a route',
         body:
-          'Export `<feature>Routes` from the feature\'s `index.js`, ' +
-          'then spread it inside `src/app/config/navigation.js`.',
+          'Export <code>&lt;feature&gt;Routes</code> from the features <code>index.js</code>, ' +
+          'then spread it inside <code>src/app/config/navigation.js</code>.',
       },
       {
         title: 'Wire the navigation',
         body:
-          'Add the new path to the `menu` array inside ' +
-          '`src/ui/components/site-header/site-header.js` so it appears in the header.',
+          'Add the new path to the <code>menu</code> array inside ' +
+          '<code>src/ui/components/site-header/site-header.js</code> so it appears in the header.',
       },
       {
         title: 'Run, test, ship',
         body:
-          '`npm run dev` for hot-reload development, `npm test` ' +
-          'for the Vitest suite, `npm run build` to produce the production bundle in `dist/`.',
+          '<code>npm run dev</code> for hot-reload development, <code>npm test</code> ' +
+          'for the Vitest suite, <code>npm run build</code> to produce the production bundle.',
       },
     ];
 
-    // ── The three pillars highlighted on the home page ────────────────
     this.pillars = [
       {
         icon:  '◧',
@@ -63,8 +61,8 @@ class HomeVM {
         icon:  '◨',
         title: 'CSS — styles only',
         body:
-          'Each page / component owns a sibling .css file. All colors, ' +
-          'spacing and radii come from tokens.css, so theming is one-place.',
+          'Each page/component owns a sibling .css file. All colors, ' +
+          'spacing, and radii come from tokens.css — theming is one-place.',
       },
       {
         icon:  '◩',
@@ -76,8 +74,11 @@ class HomeVM {
     ];
   }
 
-  /** Demo handler for the four notification-test buttons.
-   *  Called from home.html via:  data-bind="click: notify.bind($data, 'success')"
+  /**
+   * Demo handler for the four notification-test buttons.
+   * Called from home.html:  data-bind="click: function(){ $data.showNotify('success') }"
+   *
+   * Named showNotify (NOT notify) to avoid shadowing the imported notify object.
    */
   showNotify(type) {
     const messages = {
@@ -86,7 +87,13 @@ class HomeVM {
       warning: 'Warnings stick for 3.5 s.',
       error:   'Errors stick for 5 s — give the user time to read.',
     };
-    notify[type](messages[type]);
+    const message = messages[type];
+    if (!message) return;                  // guard against typos in the type string
+
+    if      (type === 'success') notify.success(message);
+    else if (type === 'info')    notify.info(message);
+    else if (type === 'warning') notify.warning(message);
+    else if (type === 'error')   notify.error(message);
   }
 }
 

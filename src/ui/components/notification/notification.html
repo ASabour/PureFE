@@ -1,8 +1,14 @@
 <!-- notification.html — toast container (markup only) -->
-<div class="toast-stack" data-bind="foreach: toasts">
-  <div class="toast" data-bind="css: 'toast--' + type(), attr: { role: type() === 'error' ? 'alert' : 'status' }">
-    <span class="toast__icon" data-bind="text: $parent.iconFor(type())"></span>
-    <span class="toast__message" data-bind="text: message"></span>
-    <button class="toast__close" data-bind="click: $parent.dismiss.bind($parent, $data)" aria-label="Close">&#x2715;</button>
+<div class="toast-stack" style="position: fixed; top: 1.5rem; right: 1.5rem; z-index: 10000; display: flex; flex-direction: column; gap: 0.75rem;" data-bind="foreach: toasts">
+  
+  <!-- Add fallback style backgrounds if your .toast--success selectors are missing -->
+  <div class="toast show p-3 shadow-sm rounded border d-flex align-items-center gap-2" 
+       data-bind="css: 'toast--' + type(), attr: { role: type() === 'error' ? 'alert' : 'status' }"
+       style="background: var(--bg-surface, #fff); color: var(--text-main, #333); min-width: 300px;">
+       
+    <span class="toast__icon" data-bind="text: $parent.iconFor(type())" style="font-weight: bold;"></span>
+    <span class="toast__message flex-grow-1" data-bind="text: message"></span>
+    <button class="toast__close btn-close ms-auto" data-bind="click: $parent.dismiss.bind($parent, $data)" aria-label="Close" style="background: none; border: none;">&#x2715;</button>
   </div>
+  
 </div>

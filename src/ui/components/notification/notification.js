@@ -8,7 +8,10 @@ import template from './notification.html?raw';
 class NotificationViewModel {
   constructor() {
     this.toasts = ko.observableArray([]);
-    window.addEventListener('purefe:notify', (e) => this._add(e.detail));
+    
+    // Explicitly bind the function instance context
+    this._handleNotification = (e) => this._add(e.detail);
+    window.addEventListener('purefe:notify', this._handleNotification);
   }
 
   _add({ message, type = 'info', duration = 3500 }) {
